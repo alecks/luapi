@@ -1,4 +1,4 @@
-package main
+package luapi
 
 import (
 	"net/http"
@@ -38,7 +38,7 @@ type Router interface {
 // Handlers are functions called on request and result.
 type Handlers struct {
 	Req namespaceHandler
-	Res func(*lua.LState, Context) lua.LGFunction
+	Res func(Context) lua.LGFunction
 }
 
 // LuAPI is the main server.
@@ -101,7 +101,7 @@ func (api *LuAPI) mainHandler(c Context) {
 	if handlers, ok := api.Handlers[namespace]; ok {
 		l := lua.NewState()
 		api.bootstrap(l)
-		l.SetGlobal("respond", l.NewFunction(handlers.Res(l, c)))
+		l.SetGlobal("respond", l.NewFunction(handlers.Res(c)))
 
 		if err := handlers.Req(l, body.Script); err != nil {
 			c.Respond(LuAPIResponse{

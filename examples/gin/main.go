@@ -3,6 +3,7 @@ package main
 import (
 	"net/http"
 
+	luapi "github.com/fjah/LuAPI"
 	"github.com/gin-gonic/gin"
 	lua "github.com/yuin/gopher-lua"
 )
@@ -43,7 +44,7 @@ func main() {
 		Req: func(l *lua.LState, script string) error {
 			return l.DoString(script)
 		},
-		Res: func(l *lua.LState, c luapi.Context) lua.LGFunction {
+		Res: func(c luapi.Context) lua.LGFunction {
 			return func(state *lua.LState) int {
 				c.Respond(luapi.LuAPIResponse{
 					Status: http.StatusOK,
