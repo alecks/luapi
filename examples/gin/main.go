@@ -81,9 +81,9 @@ func main() {
 			return func(state *lua.LState) int {
 				// This checks if it's the first time calling `respond`. If it is, respond.
 				if called == 0 {
-					// Just respond to the request with the first parameter passed to the `respond` Lua function
-					// as a string. You can also push (return) values with state.Push; make sure to update
-					// `return 0` to be the amount of returned values.
+					// Just respond to the request with the first parameter passed to the `respond` Lua
+					// function as a string. You can also push (return) values with state.Push; make sure
+					// to update `return 0` to be the amount of returned values.
 					c.Respond(luapi.ResponseBody{
 						Status: http.StatusOK,
 						Body:   state.ToString(1),
