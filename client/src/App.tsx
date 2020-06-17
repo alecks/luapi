@@ -1,6 +1,7 @@
 import React from "react";
 import MonacoEditor from "react-monaco-editor";
 import starter from "./starter";
+import pastelsDark from "./themes/pastels.dark";
 
 interface State {
   code: string;
@@ -70,15 +71,20 @@ class App extends React.Component<Readonly<{}>, State> {
     }
   }
 
+  editorWillMount(m: any) {
+    m.editor.defineTheme("pastels-dark", pastelsDark);
+  }
+
   render() {
     return (
       <MonacoEditor
         width="100vw"
         height="100vh"
         language="lua"
-        theme="vs-dark"
+        theme="pastels-dark"
         value={this.state.code}
         onChange={this.onChange}
+        editorWillMount={this.editorWillMount}
       />
     );
   }
