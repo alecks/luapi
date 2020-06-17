@@ -84,7 +84,7 @@ func main() {
 			// This allows us to limit the amount of calls to `respond`.
 			called := 0
 
-			// Lets return a LGFunction; this lets us access variables passed in Lua.
+			// Let's return a LGFunction; this lets us access variables passed in Lua.
 			return func(state *lua.LState) int {
 				// This checks if it's the first time calling `respond`. If it is, respond.
 				if called == 0 {
