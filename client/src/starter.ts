@@ -21,7 +21,7 @@ export default `--[[
 --]]
 
 -- Make sure to edit these values to fit your server.
---: http://localhost
+--: ${localStorage.getItem("defaultURL") || "http://luapi.example.org"}
 --: global
 
 function main() return 'Hello, world!'; end

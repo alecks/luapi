@@ -28,9 +28,10 @@ class App extends React.Component<Readonly<{}>, State> {
       const [apiURL, namespace] = script
         .match(/^--:( *)?.*/gm)
         ?.map((v) => v.replace(/^--:( *)?/gm, "")) || [
-        "http://localhost",
+        "http://luapi.example.org",
         "global",
       ];
+      localStorage.setItem("defaultURL", apiURL);
 
       const res = (await fetch(apiURL, {
         method: "POST",
