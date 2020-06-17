@@ -1,3 +1,12 @@
+/*
+	This is an example of how LuAPI can be used with gin-gonic, a router for Go.
+
+	To test this yourself, simply run it and POST to / with an application/json body:
+		{"script": "respond(test())"}
+	If this worked, you should've received a JSON body with "Test succeeded!", or whatever your `test` function
+	returned.
+*/
+
 package main
 
 import (
@@ -53,6 +62,12 @@ func main() {
 	api.Handlers["global"] = luapi.Handlers{
 		// Req is called when a request is made to the server.
 		Req: func(l *lua.LState, script string) error {
+			// Set a function called test that returns one string.
+			l.SetGlobal("test", l.NewFunction(func(state *lua.LState) int {
+				state.Push(lua.LString("Test succeeded!"))
+				return 1
+			}))
+
 			// This simply tells the Lua state to execute the script. Note that the bootstrapper has already
 			// been called.
 			return l.DoString(script)
