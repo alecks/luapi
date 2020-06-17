@@ -13,6 +13,7 @@ import (
 	"net/http"
 
 	"github.com/fjah/luapi"
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	lua "github.com/yuin/gopher-lua"
 )
@@ -54,6 +55,13 @@ func (r ginRouter) POST(path string, handler func(luapi.Context)) {
 
 func main() {
 	router := gin.New()
+	// This isn't required, but it's useful if you want to open your API to the public!
+	router.Use(cors.New(cors.Config{
+		AllowOrigins:     []string{"*"},
+		AllowHeaders:     []string{"*"},
+		AllowMethods:     []string{"*"},
+		AllowCredentials: true,
+	}))
 	// Once we're done, just instantiate LuAPI with our router.
 	// (NOTE: You can use luapi.New with the router; this is just an example of adding more customisation.)
 	api := luapi.LuAPI{
