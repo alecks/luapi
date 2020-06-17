@@ -3,7 +3,7 @@ module luapi-gin
 go 1.14
 
 require (
-	github.com/fjah/luapi v0.0.0-20200617061809-ebca925c206e
+	github.com/fjah/luapi v0.0.0-20200617065506-e24118a514e4
 	github.com/gin-gonic/gin v1.6.3
 	github.com/go-playground/validator/v10 v10.3.0 // indirect
 	github.com/golang/protobuf v1.4.2 // indirect

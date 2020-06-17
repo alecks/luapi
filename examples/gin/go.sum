@@ -11,6 +11,8 @@ github.com/envoyproxy/go-control-plane v0.9.1-0.20191026205805-5f8ba28d4473/go.m
 github.com/envoyproxy/protoc-gen-validate v0.1.0/go.mod h1:iSmxcyjqTsJpI2R4NaDN7+kN2VEUnK/pcBlmesArF7c=
 github.com/fjah/luapi v0.0.0-20200617061809-ebca925c206e h1:ANZuoWPWi80bop9hSRs5FdHH505Ddh5gkEcdlfZTuSw=
 github.com/fjah/luapi v0.0.0-20200617061809-ebca925c206e/go.mod h1:aqCy3V8guFMZ7aidLJmWSJQkB29WTHo6APXssvV/sVs=
+github.com/fjah/luapi v0.0.0-20200617065506-e24118a514e4 h1:qry+cYQVR7F96yP6HT5n2H/hKX3NdLrxZXfHIgBItIU=
+github.com/fjah/luapi v0.0.0-20200617065506-e24118a514e4/go.mod h1:aqCy3V8guFMZ7aidLJmWSJQkB29WTHo6APXssvV/sVs=
 github.com/gin-contrib/sse v0.1.0 h1:Y/yl/+YNO8GZSjAhjMsSuLt29uWRFHdHYUb5lYOV9qE=
 github.com/gin-contrib/sse v0.1.0/go.mod h1:RHrZQHXnP2xjPF+u1gW/2HnVO7nvIa9PG3Gm+fLHvGI=
 github.com/gin-gonic/gin v1.6.3 h1:ahKqKTFpO5KTPHxWZjEdPScmYaGtLo8Y4DMHoEsnp14=
