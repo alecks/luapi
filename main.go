@@ -60,12 +60,9 @@ type LuAPI struct {
 
 // New instantiates LuAPI. To customise this, use the LuAPI struct yourself.
 func New(router Router) *LuAPI {
-	luaState := lua.NewState()
 	api := LuAPI{
 		Router:       router,
-		Lua:          luaState,
 		Bootstrapper: "debug = nil; io = nil; os = nil",
-		Handlers:     make(map[string]Handlers),
 	}
 
 	return &api
@@ -73,6 +70,13 @@ func New(router Router) *LuAPI {
 
 // Setup runs the bootstrapper, sets routes and optionally runs a test script.
 func (api *LuAPI) Setup(runTest bool) error {
+	if api.Lua == nil {
+		api.Lua = lua.NewState()
+	}
+	if api.Handlers == nil {
+		api.Handlers = make(map[string]Handlers)
+	}
+
 	if err := api.bootstrap(api.Lua); err != nil {
 		return err
 	}
