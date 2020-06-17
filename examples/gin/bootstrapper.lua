@@ -5,4 +5,3 @@
 --]]
 
 print("Bootstrapping LuAPI!");
-debug = nil; io = nil; os = nil
