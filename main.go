@@ -8,10 +8,10 @@ import (
 
 type namespaceHandler = func(l *lua.LState, script string) error
 
-// LuAPIResponse is a response sent by the API. Note that this will also be used for errors.
+// ResponseBody is a response sent by the API. Note that this will also be used for errors.
 // The client should receive an application/json response with {"status":Status,"body":Body}. The status code
 // should be set to Status.
-type LuAPIResponse struct {
+type ResponseBody struct {
 	Status int    `json:"status"`
 	Body   string `json:"body"`
 }
@@ -27,7 +27,7 @@ type RequestBody struct {
 // Context is a generic request context.
 type Context interface {
 	Body() RequestBody
-	Respond(LuAPIResponse)
+	Respond(ResponseBody)
 }
 
 // Router is a generic router used by LuAPI. This should be implemented.
@@ -87,7 +87,7 @@ func (api *LuAPI) Setup(runTest bool) error {
 func (api *LuAPI) mainHandler(c Context) {
 	body := c.Body()
 	if body.Script == "" {
-		c.Respond(LuAPIResponse{
+		c.Respond(ResponseBody{
 			Status: http.StatusBadRequest,
 			Body:   "`script` is required",
 		})
@@ -104,7 +104,7 @@ func (api *LuAPI) mainHandler(c Context) {
 		l.SetGlobal("respond", l.NewFunction(handlers.Res(c)))
 
 		if err := handlers.Req(l, body.Script); err != nil {
-			c.Respond(LuAPIResponse{
+			c.Respond(ResponseBody{
 				Status: http.StatusBadRequest,
 				Body:   err.Error(),
 			})
@@ -112,7 +112,7 @@ func (api *LuAPI) mainHandler(c Context) {
 		return
 	}
 
-	c.Respond(LuAPIResponse{
+	c.Respond(ResponseBody{
 		Status: http.StatusNotFound,
 		Body:   "Namespace doesn't exist: " + namespace,
 	})
