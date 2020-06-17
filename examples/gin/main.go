@@ -24,7 +24,7 @@ func (c ginContext) Body() luapi.RequestBody {
 	return req
 }
 
-func (c ginContext) Respond(resp luapi.LuAPIResponse) {
+func (c ginContext) Respond(resp luapi.ResponseBody) {
 	c.original.JSON(resp.Status, resp)
 }
 
@@ -46,7 +46,7 @@ func main() {
 		},
 		Res: func(c luapi.Context) lua.LGFunction {
 			return func(state *lua.LState) int {
-				c.Respond(luapi.LuAPIResponse{
+				c.Respond(luapi.ResponseBody{
 					Status: http.StatusOK,
 					Body:   state.ToString(1),
 				})
