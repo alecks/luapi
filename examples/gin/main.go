@@ -29,10 +29,10 @@ type ginContext struct {
 
 // Body should just return a RequestBody of the parsed application/json data.
 func (c ginContext) Body() luapi.RequestBody {
-	req := luapi.RequestBody{}
-	if err := c.original.BindJSON(&req); err != nil {
-		panic(err)
+	req := luapi.RequestBody{
+		Script: `respond("Invalid request body.")`,
 	}
+	_ = c.original.BindJSON(&req)
 	return req
 }
 
