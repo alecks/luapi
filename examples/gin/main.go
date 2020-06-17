@@ -74,15 +74,23 @@ func main() {
 		},
 		// Once Req finishes, Res' *closure* will be called.
 		Res: func(c luapi.Context) lua.LGFunction {
+			// This allows us to limit the amount of calls to `respond`.
+			called := 0
+
 			// Lets return a LGFunction; this lets us access variables passed in Lua.
 			return func(state *lua.LState) int {
-				// Just respond to the request with the first parameter passed to the `respond` Lua function as a
-				// string. You can also push (return) values with state.Push; make sure to update `return 0` to be
-				// the amount of returned values.
-				c.Respond(luapi.ResponseBody{
-					Status: http.StatusOK,
-					Body:   state.ToString(1),
-				})
+				// This checks if `respond` has been called more than once. If it hasn't, respond.
+				if called < 1 {
+					// Just respond to the request with the first parameter passed to the `respond` Lua function as a
+					// string. You can also push (return) values with state.Push; make sure to update `return 0` to be
+					// the amount of returned values.
+					c.Respond(luapi.ResponseBody{
+						Status: http.StatusOK,
+						Body:   state.ToString(1),
+					})
+				}
+
+				called++
 				return 0
 			}
 		},
