@@ -19,7 +19,7 @@ type ResponseBody struct {
 // RequestBody is an application/json body that LuAPI supports.
 type RequestBody struct {
 	// Namespace is the "endpoint" that the script will be executed for. Not required.
-	Namespace string `json:"for"`
+	Namespace string `json:"namespace"`
 	// Script is the script that'll be run in the Lua sandbox. Required.
 	Script string `json:"script"`
 }
