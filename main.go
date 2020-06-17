@@ -125,9 +125,3 @@ func (api *LuAPI) bootstrap(l *lua.LState) error {
 
 	return api.Lua.DoFile(api.BootstrapperFile)
 }
-
-func chk(err error) {
-	if err != nil {
-		panic(err)
-	}
-}
