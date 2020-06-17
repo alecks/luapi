@@ -55,7 +55,11 @@ func (r ginRouter) POST(path string, handler func(luapi.Context)) {
 func main() {
 	router := gin.New()
 	// Once we're done, just instantiate LuAPI with our router.
-	api := luapi.New(ginRouter{engine: router})
+	// (NOTE: You can use luapi.New with the router; this is just an example of adding more customisation.)
+	api := luapi.LuAPI{
+		Router:           ginRouter{engine: router},
+		BootstrapperFile: "bootstrapper.lua",
+	}
 
 	// The global handler is the one used when a namespace isn't provided. Namespaces are essentially way
 	// to virtualise endpoints; they can have a set amount of functions, etc.
