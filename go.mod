@@ -1,4 +1,4 @@
-module github.com/fjah/LuAPI
+module github.com/fjah/luapi
 
 go 1.14
 

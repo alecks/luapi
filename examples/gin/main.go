@@ -3,7 +3,7 @@ package main
 import (
 	"net/http"
 
-	luapi "github.com/fjah/LuAPI"
+	"github.com/fjah/luapi"
 	"github.com/gin-gonic/gin"
 	lua "github.com/yuin/gopher-lua"
 )
