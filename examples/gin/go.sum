@@ -17,6 +17,10 @@ github.com/fjah/luapi v0.0.0-20200617072031-506eebebf634 h1:kC8WRURPVZ3rQQEWE/5a
 github.com/fjah/luapi v0.0.0-20200617072031-506eebebf634/go.mod h1:aqCy3V8guFMZ7aidLJmWSJQkB29WTHo6APXssvV/sVs=
 github.com/fjah/luapi v0.0.0-20200617072958-76307276a44f h1:XbOiXjzCRlHlyS7/KcJu2ga7VSnzrFPQixS/9QRNPdg=
 github.com/fjah/luapi v0.0.0-20200617072958-76307276a44f/go.mod h1:aqCy3V8guFMZ7aidLJmWSJQkB29WTHo6APXssvV/sVs=
+github.com/fjah/luapi v0.0.0-20200617074507-76befd00017a h1:aO1YysuS1XVYrgdTPl9k4QfSGQFVKF2QVQ4fT0kDZ28=
+github.com/fjah/luapi v0.0.0-20200617074507-76befd00017a/go.mod h1:aqCy3V8guFMZ7aidLJmWSJQkB29WTHo6APXssvV/sVs=
+github.com/fjah/luapi v0.0.0-20200617075947-b4926ced5cc7 h1:p1O8elOeEi2dgKOktNnKzMxxaogHRH7gsby17DrlQ3c=
+github.com/fjah/luapi v0.0.0-20200617075947-b4926ced5cc7/go.mod h1:aqCy3V8guFMZ7aidLJmWSJQkB29WTHo6APXssvV/sVs=
 github.com/gin-contrib/sse v0.1.0 h1:Y/yl/+YNO8GZSjAhjMsSuLt29uWRFHdHYUb5lYOV9qE=
 github.com/gin-contrib/sse v0.1.0/go.mod h1:RHrZQHXnP2xjPF+u1gW/2HnVO7nvIa9PG3Gm+fLHvGI=
 github.com/gin-gonic/gin v1.6.3 h1:ahKqKTFpO5KTPHxWZjEdPScmYaGtLo8Y4DMHoEsnp14=
