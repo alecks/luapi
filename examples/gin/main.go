@@ -58,8 +58,11 @@ func main() {
 	// (NOTE: You can use luapi.New with the router; this is just an example of adding more customisation.)
 	api := luapi.LuAPI{
 		Router:           ginRouter{engine: router},
-		BootstrapperFile: "bootstrapper.lua",
+		BootstrapperFile: "./bootstrapper.lua",
 	}
+
+	// Set up the API, running a test.
+	api.Setup(true)
 
 	// The global handler is the one used when a namespace isn't provided. Namespaces are essentially way
 	// to virtualise endpoints; they can have a set amount of functions, etc.
@@ -99,8 +102,6 @@ func main() {
 			}
 		},
 	}
-	// Set up the API, running a test.
-	api.Setup(true)
 
 	router.Run(":80")
 }
