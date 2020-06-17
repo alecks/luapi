@@ -113,6 +113,8 @@ func (api *LuAPI) mainHandler(c Context) {
 				Body:   err.Error(),
 			})
 		}
+
+		l.Close()
 		return
 	}
 
