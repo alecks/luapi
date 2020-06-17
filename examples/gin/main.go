@@ -64,7 +64,7 @@ func main() {
 	// Set up the API, running a test.
 	api.Setup(true)
 
-	// The global handler is the one used when a namespace isn't provided. Namespaces are essentially way
+	// The global handler is the one used when a namespace isn't provided. Namespaces are essentially a way
 	// to virtualise endpoints; they can have a set amount of functions, etc.
 	api.Handlers["global"] = luapi.Handlers{
 		// Req is called when a request is made to the server.
