@@ -42,7 +42,7 @@ func (c ginContext) Respond(resp luapi.ResponseBody) {
 	c.original.JSON(resp.Status, resp)
 }
 
-// POST simply allows LuAPI to register POST requests.
+// POST simply allows LuAPI to register POST endpoints.
 func (r ginRouter) POST(path string, handler func(luapi.Context)) {
 	ginHandler := func(c *gin.Context) {
 		// We need to make sure to instantiate a ginContext and call handler here.
